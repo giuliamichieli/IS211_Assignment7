@@ -125,8 +125,10 @@ def main():
     parser.add_argument('--numPlayers', type=int, help='Number of players',)
     args = parser.parse_args()
 
-    player_count = args.numPlayers if args.numPlayers else 2
-
+    
+    if args.numPlayers is None: player_count = 2
+    else: player_count = args.numPlayers
+    
     if player_count < 2:
         print("There must be at least 2 players.")
         sys.exit()
